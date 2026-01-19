@@ -7,18 +7,22 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('submissions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('quiz_id')->constrained()->cascadeOnDelete();
-            $table->text('question');
-            $table->unsignedInteger('position')->default(0);
+
+            // Auth can be added later
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
+            $table->unsignedInteger('score');
             $table->timestamps();
+
+            $table->unique(['quiz_id', 'user_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('submissions');
     }
 };
-

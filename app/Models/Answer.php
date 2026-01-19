@@ -2,12 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    protected $fillable = ['question_id', 'answer_text', 'is_correct'];
-    
+    use HasFactory;
+
+    protected $fillable = [
+        'question_id',
+        'answer',
+        'is_correct',
+    ];
+
+    /**
+     * An answer belongs to one question.
+     */
     public function question()
     {
         return $this->belongsTo(Question::class);

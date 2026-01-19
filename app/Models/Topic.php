@@ -2,19 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
-    protected $fillable = ['title', 'description'];
-    
-    public function questions()
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * A topic groups multiple quizzes.
+     */
+    public function quizzes()
     {
-        return $this->hasMany(Question::class);
-    }
-    
-    public function scoreHistories()
-    {
-        return $this->hasMany(ScoreHistory::class);
+        return $this->hasMany(Quiz::class);
     }
 }

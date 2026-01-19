@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Submission extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'quiz_id',
-        'question',
-        'position',
+        'user_id',
+        'score',
     ];
 
     /**
-     * A question belongs to a quiz.
+     * A submission belongs to a quiz.
      */
     public function quiz()
     {
@@ -24,10 +24,10 @@ class Question extends Model
     }
 
     /**
-     * A question has multiple possible answers.
+     * A submission may belong to a user (optional for now).
      */
-    public function answers()
+    public function user()
     {
-        return $this->hasMany(Answer::class);
+        return $this->belongsTo(User::class);
     }
 }
