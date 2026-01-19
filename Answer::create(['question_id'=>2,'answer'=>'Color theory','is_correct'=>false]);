@@ -1,0 +1,9 @@
+[90m= [39m[34;4mApp\Models\Answer[39;24m {#5787
+    [34mquestion_id[39m: [35m2[39m,
+    [34manswer[39m: "[32mCapturing motion & action[39m",
+    [34mis_correct[39m: [36mtrue[39m,
+    [34mupdated_at[39m: "[32m2026-01-19 20:13:14[39m",
+    [34mcreated_at[39m: "[32m2026-01-19 20:13:14[39m",
+    [34mid[39m: [35m21[39m,
+  }
+
